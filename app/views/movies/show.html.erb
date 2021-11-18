@@ -18,6 +18,24 @@
       </div>
     </div>
 
+    <% if session[:user_id].present? %> 
+
+      <% bookmarks_for_this_movie = Bookmark.where({ :movie_id => @the_movie.id})%>
+      <% this_users_bookmarks = bookmarks_for_this_movie.where({ :user_id => session.fetch(:user_id)})%>
+      <% the_bookmark = this_users_bookmarks.at(0) %>
+      <% if the_bookmark == nil %>
+        <form action= "/process_bookmark_button">
+          <input type= "hidden" name= "user_id" value="<%= session.fetch(:user_id) %>">
+          <input type= "hidden" name= "movie_id" value="<%= @the_movie.id %>">
+
+          <button>Bookmark!</button>
+        </form>
+
+      <% else %>
+        <a href="/delete_bookmark/<%= the_bookmark.id %>">Un-bookmark</a>
+      <% end %>
+    <% end %>
+
     <dl>
       <dt>
         Title
