@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+
+
   def index
     matching_bookmarks = Bookmark.all
 
