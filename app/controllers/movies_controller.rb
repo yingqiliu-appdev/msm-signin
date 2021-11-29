@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   def add_bookmark
     b = Bookmark.new
     b.user_id = params.fetch("user_id")
-    b.movie_id = params.fetch("movie_id")
+    b.movie_id = params.fetch("query_movie_id")
     b.save
     redirect_to("/bookmarks")
 

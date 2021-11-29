@@ -15,5 +15,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def homepage
+    render({ :template => "user_authentication/homepage.html.erb"})
 
+  end
 end

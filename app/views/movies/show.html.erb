@@ -26,9 +26,9 @@
       <% if the_bookmark == nil %>
         <form action= "/process_bookmark_button">
           <input type= "hidden" name= "user_id" value="<%= session.fetch(:user_id) %>">
-          <input type= "hidden" name= "movie_id" value="<%= @the_movie.id %>">
+          <input type= "hidden" name= "query_movie_id" value="<%= @the_movie.id %>">
 
-          <button>Bookmark!</button>
+          <button>Bookmark this movie!</button>
         </form>
 
       <% else %>

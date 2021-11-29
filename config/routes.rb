@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Routes for homepage
+  get("/", { :controller => "application", :action => "homepage" })
+
 
   # Routes for the Bookmark resource:
 
@@ -38,6 +41,7 @@ Rails.application.routes.draw do
 
   # SIGN IN FORM
   get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
+  
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   
